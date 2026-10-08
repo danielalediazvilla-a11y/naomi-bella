@@ -65,9 +65,9 @@
       position: relative;
     }
 
-    /* Rose screen */
+        /* Rose screen */
     #flowerScreen {
-      display: none;
+      display: none; /* <-- ASEGÚRATE DE QUE ESTA LÍNEA ESTÉ AQUÍ */
       position: fixed;
       inset: 0;
       background: #080d15;
@@ -75,6 +75,9 @@
       align-items: center;
       z-index: 10;
     }
+
+
+  
 
     .glass {
       position: relative;
@@ -135,7 +138,7 @@
   <div class="container" id="mainScreen">
     <div class="card">
       <img src="https://tenor.com" alt="Osito" class="bear">
-      <h2>¿Quieres ser mi Valentín, Naomi?</h2>
+      <h2>¿Quieres una rosa, Naomi?</h2>
       <button id="yes">Sí</button>
       <button id="no">No</button>
     </div>
