@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Naomi ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #f7b6c5;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      width: 220px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .bear {
+      width: 170px;
+      height: 130px;
+      object-fit: contain;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #222;
+    }
+
+    button {
+      border: none;
+      color: white;
+      padding: 8px 18px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 4px;
+      transition: transform 0.1s ease;
+    }
+
+    #yes {
+      background: #08a51c;
+    }
+
+    #no {
+      background: #e52525;
+      position: relative;
+    }
+
+    /* Rose screen */
+    #flowerScreen {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #080d15;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .glass {
+      position: relative;
+      width: 150px;
+      height: 280px;
+      border: 3px solid rgba(190, 200, 215, 0.7);
+      border-radius: 80px 80px 10px 10px;
+      background: rgba(30, 60, 100, 0.25);
+      box-shadow:
+        0 0 20px rgba(100, 150, 255, 0.3),
+        inset 0 0 30px rgba(100, 150, 255, 0.15);
+    }
+
+    .rose {
+      position: absolute;
+      left: 50%;
+      top: 55px;
+      transform: translateX(-50%);
+    }
+
+    .flower {
+      position: relative;
+      width: 55px;
+      height: 55px;
+      margin: auto;
+      filter: drop-shadow(0 0 12px #ff174f);
+    }
+
+    .petal {
+      position: absolute;
+      width: 30px;
+      height: 35px;
+      background: #ed1749;
+      border-radius: 50% 50% 45% 45%;
+    }
+
+    .p1 {
+      left: 13px;
+      top: 0;
+    }
+
+    .p2 {
+      left: 0;
+      top: 15px;
+      transform: rotate(-35deg);
+    }
+
+    .p3 {
+      right: 0;
+      top: 15px;
+      transform: rotate(35deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pantalla Principal (El Osito) -->
+  <div class="container" id="mainScreen">
+    <div class="card">
+      <img src="https://tenor.com" alt="Osito" class="bear">
+      <h2>¿Quieres ser mi Valentín, Naomi?</h2>
+      <button id="yes">Sí</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <!-- Pantalla Secundaria (La Rosa en Cúpula) -->
+  <div id="flowerScreen">
+    <div class="glass">
+      <div class="rose">
+        <div class="flower">
+          <div class="petal p1"></div>
+          <div class="petal p2"></div>
+          <div class="petal p3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btnYes = document.getElementById('yes');
+    const btnNo = document.getElementById('no');
+    const mainScreen = document.getElementById('mainScreen');
+    const flowerScreen = document.getElementById('flowerScreen');
+
+    btnYes.addEventListener('click', () => {
+      mainScreen.style.display = 'none';
+      flowerScreen.style.display = 'flex';
+    });
+
+    function moveButton() {
+      const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - 40) + 20;
+      const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - 40) + 20;
+      
+      btnNo.style.position = 'absolute';
+      btnNo.style.left = `${x}px`;
+      btnNo.style.top = `${y}px`;
+    }
+
+    btnNo.addEventListener('mouseenter', moveButton);
+    btnNo.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      moveButton();
+    });
+  </script>
+</body>
+</html>
